@@ -1,0 +1,18 @@
+# Tłumaczenie Dolly dataset za pomocą Googletrans
+
+Googletrans implementuje interfejs Google Translate używając AJAX API. 
+
+Poniższy notebook pozwala na przetłumaczenie na PL wybranej kolumny ze zbioru Dolly. Aktualnie przetłumaczone zostały (prawie) wszystkie instrukcje (dn. 2023-04-21).
+
+## Metryki
+Pola przetlumaczone:
+    * Instructions (Przetlumaczone: 14998; Pozostalo: 12)
+
+## Dane
+Przetlumaczone instrukcje znajduja sie pod _./dolly_ggltrans/dolly_instruction_en_translated.json_
+
+## Uwagi:
+    * Tłumaczenie bulkiem powoduje blokadę IP przez Google.
+    * Dziala jedynie w srodowisku Google Colab (do przetestowania)
+    * Proces jest powolny (Tlumaczenie instrukcji zajelo ~6h)
+    * ... ale dziala
