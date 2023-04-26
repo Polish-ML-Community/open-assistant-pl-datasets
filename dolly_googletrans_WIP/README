@@ -1,18 +1,20 @@
-# Tłumaczenie Dolly dataset za pomocą Googletrans
+# Tłumaczenie PL Dolly dataset za pomocą Googletrans
 
-Googletrans implementuje interfejs Google Translate używając AJAX API. 
-
-Poniższy notebook pozwala na przetłumaczenie na PL wybranej kolumny ze zbioru Dolly. Aktualnie przetłumaczone zostały (prawie) wszystkie instrukcje (dn. 2023-04-21).
 
 ## Metryki
 Pola przetlumaczone:
-    * Instructions (Przetlumaczone: 14998; Pozostalo: 12)
+    * Instructions (Przetlumaczone: 14998/99%; Pozostalo: 12)
+    * Context (Przetlumaczone: 13214/88%; Pozostalo: 1796)
+    * Respone (Przetlumaczone: 10988/73%; Pozostalo: 4022; Brakuje: 190)
 
-## Dane
-Przetlumaczone instrukcje znajduja sie pod _./dolly_ggltrans/dolly_instruction_en_translated.json_
+## Komentarz do struktury plikow
+    * Tlumaczenie znajduje sie pod _./dolly_ggltrans/dolly_ggltranslated.json_ (znajdziesz tam rowniez .csv)
+    * _dolly_instruction_en_translated.json_ to output 1_dolly_googletrans.py. 
+    * foldery context_trans_raw/, response_trans_raw/ zawieraja interim data bedace outputem funkcji translate_col(), ktora przepuscilem odrebnie dla context & response w Google Colab. 2_process_raws.ipynb laczy te dane z dolly_instruction_en_translated.json w finalny dataset.
 
-## Uwagi:
+## Uwagi do metody:
     * Tłumaczenie bulkiem powoduje blokadę IP przez Google.
-    * Dziala jedynie w srodowisku Google Colab (do przetestowania)
-    * Proces jest powolny (Tlumaczenie instrukcji zajelo ~6h)
-    * ... ale dziala
+    * Proces jest powolny (Tlumaczenie 15k instancji sajmuje ~10h)
+    * ... dawal rezultat jedynie w srodowisku Google Colab
+    * ... nie zawsze zwracal przetlumaczony tekst
+    * ... ale dzialal czesciej niz nie.
